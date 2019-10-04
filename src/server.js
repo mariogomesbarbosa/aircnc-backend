@@ -4,9 +4,10 @@
 // req.params = Acessar route params (para edição, delete)
 // req.body = Acessar corpo da requisição (para criação, edição)
 
+const mongoose = require('mongoose')
+const cors = require('cors')
 const express = require('express')
 const routes = require('./routes')
-const mongoose = require('mongoose')
 
 const app = express()
 
@@ -15,6 +16,7 @@ mongoose.connect('mongodb+srv://mariobarbosa:049632531@cluster0-moi0f.mongodb.ne
     useUnifiedTopology: true,
 })
 
+app.use(cors())
 app.use(express.json())
 app.use(routes)
 
