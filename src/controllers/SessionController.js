@@ -11,7 +11,7 @@ module.exports = {
         const { name } = req.body
         const { email } = req.body
 
-        let user = await User.findOne({ name, email })
+        let user = await User.findOne({ email })
 
         if (!user) {
             user = await User.create({ name, email })
