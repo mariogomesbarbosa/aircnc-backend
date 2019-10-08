@@ -11,6 +11,7 @@ const express = require('express')
 const routes = require('./routes')
 
 const app = express()
+const PORT = process.env.PORT || 3000;
 
 mongoose.connect('mongodb+srv://mariobarbosa:049632531@cluster0-moi0f.mongodb.net/test?retryWrites=true&w=majority', {
     useNewUrlParser: true,
@@ -22,4 +23,4 @@ app.use(express.json())
 app.use('/files', express.static(path.resolve(__dirname, '..', 'uploads')))
 app.use(routes)
 
-app.listen(3000)
+app.listen(PORT)
