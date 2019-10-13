@@ -3,10 +3,15 @@ const Spot = require('../models/Spot')
 
 module.exports ={
     async index(req, res) {
-        const { tech } = req.query
+        let spots = null
+        if (req.query.tech != undefined){
+            const { tech } = req.query
 
-        const spots = await Spot.find({ techs: tech })
+            spots = await Spot.find({ techs:tech })
 
+        } else{
+            spots = await Spot.find({})
+        }
         return res.json(spots)
     },
 
