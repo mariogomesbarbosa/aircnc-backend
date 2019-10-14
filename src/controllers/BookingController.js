@@ -13,7 +13,6 @@ module.exports = {
         })
 
         await booking.populate('spot').populate('user').execPopulate()
-        console.log(booking)
 
         const ownerSocket = req.connectedUsers[booking.spot.user]
 
