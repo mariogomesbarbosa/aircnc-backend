@@ -18,7 +18,7 @@ module.exports = {
       if (req.query.category != undefined){
           const { category } = req.query
 
-          tech = await Tech.find({ techCategory:category })
+          tech = await Tech.find({ techCategory: category })
 
       } else{
         tech = await Tech.find({})
